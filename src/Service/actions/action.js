@@ -9,11 +9,11 @@ export const addToCart = (data) => {
 }
 
 
-export const removeToCart = (index) => {
+export const removeToCart = (data) => {
     console.log("hi remove action");
     return {
         type: "REMOVE_TO_CART",
-        data: index
+        data: data
     }
 }
 

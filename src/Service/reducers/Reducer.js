@@ -8,17 +8,18 @@ export default function cardItems(state = [], action) {
 
     switch (action.type) {
         case ADD_TO_CART:
-            console.log("hi add reducer");
+            console.log("hi add reducer");  
             return [
                 ...state,
-                { cardData: action.data }
+                action.data
             ]
 
         case "REMOVE_TO_CART":
-           console.log("hi remove reducer");
-           console.log( state.splice(action.data, 1));
-           
-            
+            console.log("action reducer:", action.data.Cart);
+            //    console.log( state.splice(action.data, 1));
+            state = action.data.Cart
+            return state
+
         default:
             return state
     }

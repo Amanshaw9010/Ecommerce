@@ -109,8 +109,9 @@ const Second = (props) => {
 
 
 
+
     return (
-        <>
+        <>  
             <div className='backdrop'>
                 {data1.map((p, CategoryIndex) => {
                     return (
@@ -133,7 +134,7 @@ const Second = (props) => {
                                                     <button onClick={() => { AddtoCart(CategoryIndex, itemIndex); props.addToCartHandler({ Name: productEl.name, Price: productEl.price }) }} >Add To Cart</button>
 
 
-                                                    <button onClick={() => { removeToCart(CategoryIndex, itemIndex); props.removeToCartHandler({ CategoryIndex, itemIndex }) }} >Remove To Cart</button>
+                                                    <button onClick={() => { removeToCart(CategoryIndex, itemIndex); props.removeToCartHandler({ Cart }) }} >Remove To Cart</button>
                                                 </div>
                                                 <br /><br />
                                             </div>
@@ -142,8 +143,8 @@ const Second = (props) => {
                                         </>
 
                                     )
-                })}
-         </div>
+                                })}
+                            </div>
                             <br /><br /><br />
 
                         </>

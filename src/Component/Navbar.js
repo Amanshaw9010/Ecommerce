@@ -1,12 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../CSS/navbar.css';
 function Navabar(props) {
 
     //    console.log(props.data[1].cardData.Name);
-    //    console.log(props.c);
+    console.log(props);
+
 
 
     const [display, setDisplay] = useState("none");
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        setCount(props.data.length);
+    }, )
+
 
     const HandleDisplay = () => {
         if (display === "none") {
@@ -14,9 +21,10 @@ function Navabar(props) {
         } else if (display === "flex") {
             setDisplay("none")
         }
+       
     }
+ 
 
-    console.log(props);
     return (
         <>
 
@@ -31,30 +39,24 @@ function Navabar(props) {
                     <i class="fa-2x fa-solid fa-cart-shopping" onClick={HandleDisplay}></i>
                     {/*cobtn = checkout button */}
 
-                    <div className="counter" >{props.data.length}</div>
+                    <div className="counter" >{count}</div>
 
 
                     {
-                        props.data.map((curr, currIndex) => {
+                        props.data.map((curr) => {
 
 
                             return (
                                 <>
-
                                     <div className='navMain' key={curr} style={{ display: display }}>
-                                        <p>Item : {props.data[currIndex].cardData.Name}</p>
-                                        <br />
-                                        <p>Price : {props.data[currIndex].cardData.Price}</p>
-
+                                        <h1>{curr.Name}</h1>
+                                        <h2>{curr.Price}</h2>
                                     </div>
-
-
                                 </>
                             )
-
                         })
-
                     }
+
                     <div className='Btns' style={{ display: display }}>
                         <a href="/checkout"  >
                             <button className='cobtn' >Checkout</button>
